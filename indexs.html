@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ashna Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== LOGIN (UNCHANGED) ===== */
+.login-container {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 30px #7c3aed;
+    width: 320px;
+    margin: auto;
+    margin-top: 140px;
+}
+
+.login-container h2 {
+    color: #a78bfa;
+}
+
+input {
+    display: block;
+    width: 90%;
+    margin: 12px auto;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+}
+
+button {
+    background: linear-gradient(90deg, #7c3aed, #06b6d4);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px #06b6d4;
+}
+
+#error {
+    color: #f87171;
+}
+
+/* ===== THEMES ===== */
+.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+.light-mode {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 30px;
+    position: relative;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    background: #6366f1;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: white;
+}
+
+/* PROFILE IMAGE */
+.profile-container {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #6366f1;
+    box-shadow: 0 0 25px #6366f1;
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px #06b6d4;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 30px;
+}
+
+/* ===== BOX ===== */
+.box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #6366f1;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    padding: 10px 15px;
+    border-radius: 20px;
+    background: #6366f1;
+    color: white;
+    font-size: 14px;
+}
+
+/* ===== PROJECTS ===== */
+.projects {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* ===== SOCIALS ===== */
+.socials a {
+    margin: 10px;
+    font-size: 26px;
+    color: inherit;
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: #6366f1;
+}
+
+</style>
+</head>
+
+<body class="dark-mode">
+
+<!-- LOGIN -->
+<div id="login" class="login-container">
+    <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
+
+    <input type="text" id="email" placeholder="Enter Gmail">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="validateLogin()">Login</button>
+
+    <p id="error"></p>
+</div>
+
+<!-- PORTFOLIO -->
+<div id="portfolio" style="display:none;">
+
+<header>
+    <div class="toggle-btn" onclick="toggleMode()">☀️</div>
+
+    <div class="profile-container">
+        <!-- CHANGE IMAGE NAME HERE -->
+ <img src="profile.jpg" alt="Ashna Profile" class="profile-pic">
+       
+
+        <h1>Ashna Varughese</h1>
+        <p>Computer Science Student</p>
+    </div>
+</header>
+
+<section>
+
+<div class="box">
+    <h2>👩‍💻 About Me</h2>
+    <p>I am a passionate Computer Science student who loves building modern web applications and exploring new technologies.</p>
+</div>
+
+<div class="box">
+    <h2>💡 Skills & Interests</h2>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">Java</div>
+        <div class="skill">SQL</div>
+        <div class="skill">Problem Solving</div>
+        <div class="skill">Teamwork</div>
+    </div>
+</div>
+
+<div class="box">
+    <h2>🎓 Education</h2>
+    <p><b>St. Joseph's College of Engineering and Technology</b></p>
+    
+
+    <p><b>Mar Dionysius Senior Secondary School</b></p>
+</div>
+
+<div class="box">
+    <h2>🚀 Projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>Personal responsive portfolio.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Mark Calculator</h3>
+            <p>Calculates marks and percentage.</p>
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <h2>📞 Contact</h2>
+    <p>Email: ashnavarughese@gmail.com</p>
+ <p>Phone: 7902442646</p>
+    <div class="socials">
+        <a href="https://www.linkedin.com/in/ashna-varughese-50365b386" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/varugheseashna-prog" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/ashna_varughese" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</div>
+
+</section>
+
+</div>
+
+<script>
+function validateLogin() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    let gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+    if (!gmailPattern.test(email)) {
+        document.getElementById("error").innerText = "Only Gmail allowed!";
+        return;
+    }
+
+    if (password === "") {
+        document.getElementById("error").innerText = "Password cannot be empty!";
+        return;
+    }
+
+    // Hide login & show portfolio
+    document.getElementById("login").style.display = "none";
+    document.getElementById("portfolio").style.display = "block";
+
+    // 🔥 Switch to LIGHT MODE after login
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("light-mode");
+
+    // Update toggle icon
+    document.querySelector(".toggle-btn").innerHTML = "☀️";
+}</script>
+
+</body>
+</html>
